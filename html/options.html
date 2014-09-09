@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head><title>Chrome Swift Open Options</title></head>
+<head>
+    <title>Chrome Swift Open Options</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+
+    <script src="../js/options.js"></script>
+</head>
+
 <body>
-
-<div>
-<span>URL 1: </span>
-<input id="url1" placeholder="http://www.google.com">
-<button>Remove</button>
+<div class="page-header">
+    <h2>Chrome Swift Open <small>Options</small></h2>
 </div>
 
-<div>
-<span>URL 2: </span>
-<input id="url2" placeholder="http://www.google.com">
-<button>Remove</button>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Configured URLS</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+    </div>
 </div>
+<br><br><br>
 
-<div id="status"></div>
-<button id="save">Save</button>
 
-<!--<script src="../js/lib/zepto.min.js"></script>-->
-<script src="../js/options.js"></script>
+
+
 </body>
 </html>
