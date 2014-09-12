@@ -3,7 +3,9 @@
 <head>
     <title>Chrome Swift Open Options</title>
     <link rel="stylesheet" href="../lib/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/extension.css">
 
+    <script src="../lib/jquery-1.11.1.min.js"></script>
     <script src="../js/options.js"></script>
 </head>
 
@@ -14,18 +16,41 @@
 
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Configured URLS</h3>
-          </div>
-          <div class="panel-body">
-            Panel content
-          </div>
-        </div>
+        <h4>URLs to be opened</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-sm-11">URL</th>
+                    <th class="col-sm-1"></th>
+                </tr>
+            </thead>
+            <tr>
+                <td><a href="www.google.com" target="_blank">http://www.google.com</a></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+            <tr>
+                <td><a href="www.google.com" target="_blank">http://www.google.com</a></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+
+        </table>
     </div>
 </div>
-<br><br><br>
 
+
+<br><br>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="form-group">
+            <label for="newUrl">Add URL</label>
+            <input  type="url" class="form-control" id="newUrl" placeholder="http://www.google.com" required pattern="https?://.+">
+        </div>
+        <button id="addUrlButton" class="btn btn-default">Add</button>
+        <span id="error" class="errorMessage" style="display: none;">
+            <span class="glyphicon glyphicon-exclamation-sign"></span> Error in your URL
+        </span>
+    </div>
+</div>
 
 
 
