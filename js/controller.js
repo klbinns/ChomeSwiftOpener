@@ -7,17 +7,20 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
     $scope.delete = function(index){
         try {
             $scope.entries.splice(index, 1);
-            $scope.save();
         } catch(err){
             console.error('Error removing entry!');
         }
+
+        $scope.save();
     }
 
     $scope.add = function(url){
         $scope.entries.push({'url': url});
-        $scope.newUrl = '';
 
         $scope.save();
+
+        // TODO reset form
+        $scope.newUrl = '';
     }
 
     $scope.restore = function() {
