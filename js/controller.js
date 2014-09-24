@@ -28,6 +28,10 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
         chrome.storage.sync.get({
             tabs: []
             }, function (items) {
+                // TODO if items > 0 in length
+                $scope.$apply(function(){
+                    angular.copy(items.tabs, $scope.entries);
+                });
 
         });
 
@@ -45,4 +49,7 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
         });
 
     }
+
+
+    $scope.restore();
 });
