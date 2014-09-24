@@ -1,58 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="chomeSwiftOpen">
 <head>
     <title>Chrome Swift Open Options</title>
     <link rel="stylesheet" href="../lib/bootstrap-3.2.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/extension.css">
 
-    <script src="../lib/jquery-1.11.1.min.js"></script>
-    <script src="../js/options.js"></script>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../js/controller.js"></script>
+
+    <style type="text/css">
+      form input.ng-invalid.ng-dirty {
+          border-color: #a94442;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      }
+
+      form input.ng-valid.ng-dirty {
+          border-color: #3c763d;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      }
+    </style>
+
 </head>
 
-<body>
-<div class="page-header">
-    <h2>Chrome Swift Open <small>Options</small></h2>
-</div>
 
-<div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-        <h4>URLs to be opened</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="col-sm-11">URL</th>
-                    <th class="col-sm-1"></th>
+<body ng-controller="SwiftOpenCtrl">
+<div class="container">
+    <div class="page-header">
+        <h2>Chrome Swift Open <small>Options</small></h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <h4>URLs to be opened:</h4>
+            <table class="table" ng-if="entries.length > 0">
+                <thead>
+                    <tr>
+                        <th class="col-sm-11">URL</th>
+                        <th class="col-sm-1"></th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="entry in entries">
+                    <td><a href="{{entry.url}}" target="_blank">{{entry.url}}</a></td>
+                    <td><button type="button" class="btn btn-danger" ng-click="delete($index)">Delete</button></td>
                 </tr>
-            </thead>
-            <tr>
-                <td><a href="www.google.com" target="_blank">http://www.google.com</a></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <td><a href="www.google.com" target="_blank">http://www.google.com</a></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
 
-        </table>
-    </div>
-</div>
-
-
-<br><br>
-<div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="form-group">
-            <label for="newUrl">Add URL</label>
-            <input  type="url" class="form-control" id="newUrl" placeholder="http://www.google.com" required pattern="https?://.+">
+            </table>
+            <span ng-if="entries.length === 0"><em>No entries configured!</em></span>
         </div>
-        <button id="addUrlButton" class="btn btn-default">Add</button>
-        <span id="error" class="errorMessage" style="display: none;">
-            <span class="glyphicon glyphicon-exclamation-sign"></span> Error in your URL
-        </span>
     </div>
+
+    <br>
+    <br>
+
+
+    <form novalidate name="form" class="simple-form" class="css-form">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="form-group">
+                    <label for="newUrl">Add URL</label>
+                    <input type="url" name="uUrl" class="form-control" id="newUrl" placeholder="http://www.google.com" required pattern="https?://.+" ng-model="newUrl">
+                    <span ng-show="form.uUrl.$error.url">URLs must be fully qualified (i.e. start with 'http://'' or 'https://').</span>
+                </div>
+                <button class="btn btn-default" ng-disabled="form.$invalid" ng-click="add(newUrl)">Add</button>
+                <span id="error" class="errorMessage" style="display: none;">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> Error in your URL
+                </span>
+            </div>
+        </div>
+    </form>
+
+
 </div>
-
-
 
 </body>
 </html>
