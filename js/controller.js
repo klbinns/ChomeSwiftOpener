@@ -1,6 +1,6 @@
-var phonecatApp = angular.module('chomeSwiftOpen', []);
+var swiftOpenOptions = angular.module('swiftOpenOptions', []);
 
-phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
+swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope) {
     $scope.entries = [];
     $scope.newUrl = '';
 
@@ -15,12 +15,15 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
     }
 
     $scope.add = function(url){
-        $scope.entries.push({'url': url});
 
-        $scope.save();
+        if($scope.entries.length < 50){
+            $scope.entries.push({'url': url});
+            $scope.save();
+            $scope.resetForm();
+        } else {
+            $window.alert("There is a maximum of 50 entries. Please remove an entry to add this entry.");
+        }
 
-        // TODO reset form
-        $scope.newUrl = '';
     }
 
     $scope.restore = function() {
@@ -28,11 +31,9 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
         chrome.storage.sync.get({
             tabs: []
             }, function (items) {
-                // TODO if items > 0 in length
                 $scope.$apply(function(){
                     angular.copy(items.tabs, $scope.entries);
                 });
-
         });
 
     }
@@ -42,14 +43,14 @@ phonecatApp.controller('SwiftOpenCtrl', function ($scope) {
 
         chrome.storage.sync.set({
             tabs: $scope.entries
-        }, function () {
-            setTimeout(function () {
-
-            }, 750);
         });
 
     }
 
+    $scope.resetForm = function() {
+        $scope.newUrl = '';
+        $scope.form.$setPristine();
+    }
 
     $scope.restore();
 });
