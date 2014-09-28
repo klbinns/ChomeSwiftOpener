@@ -13,7 +13,7 @@ chrome.browserAction.onClicked.addListener(function (activeTab) {
             }
 
         } else {
-            alert("No URLs configured for swift open! Go to the options to configure URLs.");
+            alert("No URLs configured for Swift Open! Configure some URLs in the options tab.");
         }
 
     });

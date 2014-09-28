@@ -1,5 +1,5 @@
 {
-  "name": "Chrome Swift Open",
+  "name": "Super Swift Open",
   "version": "0.0.1",
   "options_page": "html/options.html",
   "browser_action":
@@ -8,7 +8,7 @@
         "19": "images/icon.png",
      	"38": "images/icon.png"
      },
-    "default_title": "Chrome Swift Open"
+    "default_title": "Super Swift Open"
   },
   "background": {
     "scripts": ["js/background.js"],
