@@ -45,7 +45,7 @@
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="form-group">
                     <label for="uUrl">Add URL</label>
-                    <input type="url" name="uUrl" class="form-control" id="newUrl" placeholder="http://www.google.com" required pattern="https?://.+" ng-model="newUrl">
+                    <input type="url" name="uUrl" class="form-control" id="newUrl" placeholder="http://www.google.com" required pattern="https?://.+" ng-model="newUrl" autofocus>
                     <span class="errorMsg" ng-show="form.uUrl.$error.url">URLs must be fully qualified (i.e. start with 'http://'' or 'https://').</span>
                 </div>
                 <button class="btn btn-default" ng-disabled="form.$invalid" ng-click="add(newUrl)">Add</button>
