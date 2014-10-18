@@ -28,8 +28,10 @@ chrome.storage.sync.get({
 
     if (tabs.length > 0) {
         chrome.browserAction.setPopup({popup: ""});
+        chrome.browserAction.setBadgeBackgroundColor({color: "#1DFF00"});
     } else {
         chrome.browserAction.setPopup({popup: "../html/popup.html"});
+        chrome.browserAction.setBadgeBackgroundColor({color: "#F00"});
     }
 
     chrome.browserAction.setBadgeText({text: tabs.length.toString()});
