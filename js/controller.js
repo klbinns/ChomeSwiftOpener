@@ -16,8 +16,10 @@ swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope) {
 
         if($scope.entries.length > 0){
             chrome.browserAction.setPopup({popup: ""});
+            chrome.browserAction.setBadgeBackgroundColor({color: "#1DFF00"});
         } else {
             chrome.browserAction.setPopup({popup: "../html/popup.html"});
+            chrome.browserAction.setBadgeBackgroundColor({color: "#F00"});
         }
 
         chrome.browserAction.setBadgeText({text: $scope.entries.length.toString()});
@@ -37,6 +39,7 @@ swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope) {
 
         if($scope.entries.length > 0){
             chrome.browserAction.setPopup({popup: ""});
+            chrome.browserAction.setBadgeBackgroundColor({color: "#1DFF00"});
         }
 
     }
