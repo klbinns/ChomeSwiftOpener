@@ -1,6 +1,9 @@
+var MAX_URLS = 20;
+
 var swiftOpenOptions = angular.module('swiftOpenOptions', []);
 
-swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope) {
+
+swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope, $window) {
     $scope.entries = [];
     $scope.newUrl = '';
 
@@ -27,14 +30,14 @@ swiftOpenOptions.controller('SwiftOpenCtrl', function ($scope) {
 
     $scope.add = function(url){
 
-        if($scope.entries.length < 50){
+        if($scope.entries.length < MAX_URLS){
             $scope.entries.push({'url': url});
             $scope.save();
             $scope.resetForm();
 
             chrome.browserAction.setBadgeText({text: $scope.entries.length.toString()});
         } else {
-            $window.alert("There is a maximum of 50 entries. Please remove an entry to add this entry.");
+            $window.alert("There is a maximum of " + MAX_URLS + " entries. Please remove an entry to add this entry.");
         }
 
         if($scope.entries.length > 0){
