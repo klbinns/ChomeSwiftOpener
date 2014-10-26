@@ -5,7 +5,7 @@ Tired of always typing in the same URLs over and over? Do you find yourself visi
 URLs are automatically synced to your Google account, so your configuration is saved in the cloud and shared across all your Chrome installations.
 
 Coming soon:
--Ability to easily add any of your bookmarks to the Swift Open list for easier configuration.<br>
--Ability to reorder the configured the URLs to determine opening order.
+-Ability to easily add any of your bookmarks to the Swift Open list for faster configuration.<br>
+-Ability to reorder the configured URLs to determine opening order.
 
 Find it in the Chrome store today!
