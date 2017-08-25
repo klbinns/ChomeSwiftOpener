@@ -9,3 +9,5 @@ Coming soon:
 -Ability to reorder the configured URLs to determine opening order.
 
 Find it in the Chrome store today!
+
+[https://chrome.google.com/webstore/detail/super-swift-open/mcbkkkhfeecioljofhmhogdjihdjkpdn](https://chrome.google.com/webstore/detail/super-swift-open/mcbkkkhfeecioljofhmhogdjihdjkpdn)
